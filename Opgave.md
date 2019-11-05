@@ -28,28 +28,35 @@ Forklaring følger også i undervisningen
 ## Øvelse 2
 Skriv en sql sætning for hver af følgende
 
-2.1	Udskriv alle informationer om alle bolcher.
+2.2 Find og udskriv navnene på alle de røde bolcher.
+SELECT * FROM `bolcher` WHERE `bolche_farve` = "Rød"
+
+2.3 Find og udskriv navnene på alle de røde og de blå bolcher, i samme SQL udtræk.
+SELECT * FROM `bolcher` WHERE `bolche_farve` IN("Rød", "Blå")
+
+2.4 Find og udskriv navnene på alle bolcher, der ikke er røde, sorteret alfabetisk.
+SELECT * FROM `bolcher` ORDER BY `bolche_farve` ASC||DESC
+
+2.5 Find og udskriv navnene på alle bolcher som starter med et “B”.
+SELECT * FROM `bolcher` WHERE `bolche_navn` like '%G%R%'
+
+2.6 Find og udskriv navene på alle bolcher, hvor der i navnet findes mindst ét “e”.
+SELECT * FROM `bolcher` WHERE `bolche_navn` LIKE '%e%'
+
+2.7 Find og udskriv navn og vægt på alle bolcher der vejer mindre end 10 gram, sorter stigende efter vægt.
+SELECT * FROM `bolcher` WHERE `bolche_veagt` BETWEEN 0 AND 10
+
+2.8 Find og udskriv navne på alle bolcher, der vejer mellem 10 og 12 gram (begge tal inklusiv), sorteret alfabetisk og derefter vægt.
+SELECT * FROM `bolcher` WHERE `bolche_veagt` BETWEEN 0 and 10 ORDER BY `bolche_veagt`, `bolche_navn`ASC
+
+2.9 Find og udskriv de tre største (tungeste) bolcher.
+SELECT * FROM `bolcher` ORDER BY `bolche_veagt`DESC LIMIT 3
+
+2.10 Udskriv alle informationer om et tilfældigt bolche, udvalgt af systemet (sql)
+SELECT * FROM `bolcher` ORDER BY RAND() LIMIT 1
 
 
-2.2	Find og udskriv navnene på alle de røde bolcher.
 
-
-2.3	Find og udskriv navnene på alle de røde og de blå bolcher, i samme SQL udtræk.
-
-2.4	Find og udskriv navnene på alle bolcher, der ikke er røde, sorteret alfabetisk.
-
-2.5	Find og udskriv navnene på alle bolcher som starter med et “B”.
-
-2.6	Find og udskriv navene på alle bolcher, hvor der i navnet findes mindst ét “e”.
-
-2.7	Find og udskriv navn og vægt på alle bolcher der vejer mindre end 10 gram, sorter stigende efter vægt.
-
-
-2.8	Find og udskriv navne på alle bolcher, der vejer mellem 10 og 12 gram (begge tal inklusiv), sorteret alfabetisk og derefter vægt.
-
-2.9	Find og udskriv de tre største (tungeste) bolcher.
-
-2.10 Udskriv alle informationer om et tilfældigt bolche, udvalgt af systemet (sql).
 
 ## Øvelse 3
 3.1	Normaliser tabellen Bolcher så der dannes ”domænetabeller” til de felter hvor flere bolcher ofte har samme værdi.
